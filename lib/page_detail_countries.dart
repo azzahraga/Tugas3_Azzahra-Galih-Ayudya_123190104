@@ -61,18 +61,15 @@ class _PageDetailCountriesState extends State<PageDetailCountries> {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
         return Card(
-          child: Padding(
-            padding : const EdgeInsets.all(15.0),
-            child: Container(
-              child: Row(
-                children: [
-                  _buildItemCountries("${data.countries?[index].name}"),
-                  Text(" adalah "),
-                  _buildItemCountries("${data.countries?[index].iso3}"),
-                ],
-              ),
-            )
-          ),
+          child:Column(
+            children: [
+              ListTile(
+                title: Text("${data.countries?[index].name}"),
+                subtitle:Text("${data.countries?[index].iso3}")
+              )
+            ],
+          )
+
         );
       },
       itemCount: data.countries?.length,
